@@ -63,3 +63,62 @@ const firstName = 'Jonas';
 calcAge(1991);
 //console.log(age);
 //printAge(); cannot be defined here
+
+//Hoisting
+// makes some types of variables accessible/usable in the code before they are actually declared. variables lifted to the top of their scope
+
+//functional declarations : hoisted-> yes, initial value -> actual function, scope-> block,
+
+// var variables: hoisted -> yes, initial val: undefined, scope -> function
+
+// let and const variables: hoisted-> no; initial value -> <uninitialized>, TDZ; scope-> block
+
+// function expressions and answers
+
+//TDZ= temporal dead zone ; makes it easier to avoid and catch errors: accessing variables before declaration is bad practice and should be avoided.
+// make const variables actually work
+
+//why hoisting?
+//using functions before actual declaration;
+// var hoisting is just a byproduct
+
+// console.log(me);
+// console.log(job);
+// console.log(year);
+// var me = 'Jonas';
+// let job = 'teacher';
+// const year = 1991;
+
+//functions
+console.log(addDec1(2.3));
+//console.log(addExpr(2,3));
+console.log(addArrow(2, 3));
+
+function addDec1(a, b) {
+  return a + b;
+}
+
+const addExpr = function (a, b) {
+  return a + b;
+};
+
+var addArrow = (a, b) => a + b;
+
+//example
+if (!numProducts) deleteShoppingCart();
+
+var numProducts = 10;
+
+function deleteShoppingCart() {
+  console.log('All products deleted!');
+}
+
+var x = 1;
+let y = 2;
+const z = 3;
+
+// window is a global object of js in browser
+
+console.log(x === window.x);
+console.log(y === window.y);
+console.log(z === window.z);
