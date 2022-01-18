@@ -122,3 +122,25 @@ const z = 3;
 console.log(x === window.x);
 console.log(y === window.y);
 console.log(z === window.z);
+
+//This Keyword
+
+/*
+this keyword: special variable that is created for every execution context (every function). takes the value of (points to) the 'owner' of the function in which the this keyword is used.
+
+this is not static. depends on how the function is called its value is only assigned when the function is actually called.
+
+method this = <object that is calling the method>
+
+simpple function call this = undefined (in strict mode)
+
+arrow functions (dont get own this) this = <this of surrounding function (lexical this)>
+ 
+event listener this = <DOM element that the handler is attached to>
+
+this does not point to the function itself, and also not the its variable environment!
+
+
+
+
+*/
