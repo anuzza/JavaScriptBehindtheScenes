@@ -143,4 +143,47 @@ this does not point to the function itself, and also not the its variable enviro
 
 
 
+
+
 */
+// this keyword in practice
+
+//global scope
+console.log(this);
+
+// simple function
+const calccAge = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this); // undefined because it is a strict mode ; has its own this keyword
+};
+
+calccAge(1991);
+
+// arrow function
+const calcAgeArrow = birthYear => {
+  console.log(2037 - birthYear);
+  console.log(this); // arrow function uses lexical this keyword i.e. keyword of the  parent scope ; global scope => window....
+};
+
+calcAgeArrow(1980);
+
+// inside a method
+const jonas = {
+  year: 1991,
+  calccAge: function () {
+    console.log(this); // this is an object of jonas
+    console.log(2037 - this.year);
+  },
+};
+
+joans.calccAge(); // jonas is the object that is calling the method
+
+const matilda = {
+  year: 2017,
+};
+
+matilda.calcAge = jonas.calccAge;
+matilda.calcAge(); // 'this' points to the matilda if it is matilda that calls the method
+
+const f = jonas.calccAge;
+f(); // this is undefined because f is just a regular function
