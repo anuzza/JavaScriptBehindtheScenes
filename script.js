@@ -23,7 +23,7 @@ the scope chain in a certain scope is equal to adding together all the variable 
 
 the scope chain has nothing to do with the order in which  functions were called. It does not affect the scope chain at all!
 
-*/
+
 
 function calcAge(birthYear) {
   const age = 2037 - birthYear;
@@ -188,7 +188,7 @@ matilda.calcAge(); // 'this' points to the matilda if it is matilda that calls t
 const f = jonas.calccAge;
 f(); // this is undefined because f is just a regular function
 
-*/
+
 
 //Regular functions vs. Arrow functions
 
@@ -244,3 +244,22 @@ var addArrow = (a, b) => {
 };
 
 addArrow(2, 5, 8);
+
+*/
+//primitives vs. objects
+
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+const me = {
+  name: 'Jonas',
+  age: 30,
+};
+
+const friend = me;
+friend.age = 27;
+console.log('Friend', friend);
+console.log('Me', me);
