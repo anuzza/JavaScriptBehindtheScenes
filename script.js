@@ -145,7 +145,7 @@ this does not point to the function itself, and also not the its variable enviro
 
 
 
-*/
+
 // this keyword in practice
 
 //global scope
@@ -187,3 +187,60 @@ matilda.calcAge(); // 'this' points to the matilda if it is matilda that calls t
 
 const f = jonas.calccAge;
 f(); // this is undefined because f is just a regular function
+
+*/
+
+//Regular functions vs. Arrow functions
+
+var firstName = 'Matilda';
+
+const joans = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+
+    //Solution 1
+    // const self = this;// self of that
+    // const isMillenial = function () {
+    //   console.log(self);
+    //   console.log(self.year >= 1981 && this.year <= 1996);
+    // };
+
+    // Solution 2 : usefulness of arrow function
+    s;
+    const isMillenial = () => {
+      console.log(this);
+      console.log(self.year >= 1981 && this.year <= 1996);
+    };
+
+    isMillenial();
+  },
+
+  greet: () => {
+    console.log(this);
+    console.log(`Hey ${this.firstName}`);
+    //uses this keyword from global
+  },
+};
+
+joans.greet();
+console.log(this.firstName); // undefined
+
+joans.calcAge();
+
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+
+addExpr(2, 5);
+addExpr(2, 5, 8, 12);
+
+var addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+
+addArrow(2, 5, 8);
